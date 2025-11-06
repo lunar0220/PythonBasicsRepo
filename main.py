@@ -130,7 +130,7 @@
 # for i in range(n):
 #     row: list[int] = []
 #     for j in range(m):
-#         row.append(random.randint(1, 100))
+#         row.append(n, m)
 #     matrix.append(row)
 
 # for row in matrix:
@@ -216,22 +216,22 @@
 
 #hard task
 
-matrix1: list[list[int]] = [
-    [1, 2, 3],
-    [4, 5, 6]
-]
-matrix2: list[list[int]] = [
-    [8, 9, 10],
-    [11, 12, 13]
-]
+# matrix1: list[list[int]] = [
+#     [1, 2, 3],
+#     [4, 5, 6]
+# ]
+# matrix2: list[list[int]] = [
+#     [8, 9, 10],
+#     [11, 12, 13]
+# ]
 
-matrix3: list[list[int]] = []
+# matrix3: list[list[int]] = []
 
-for i in range(len(matrix1)):
-    row: list[int] = []
-    for j in range(len(matrix1[i])):
-        row.append(matrix1[i][j] + matrix2[i][j])
-    matrix3.append(row)
+# for i in range(len(matrix1)):
+#     row: list[int] = []
+#     for j in range(len(matrix1[i])):
+#         row.append(matrix1[i][j] + matrix2[i][j])
+#     matrix3.append(row)
 
-for row in matrix3:
-    print(row)
+# # for row in matrix3:
+#     print(row)
