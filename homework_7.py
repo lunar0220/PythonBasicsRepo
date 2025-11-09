@@ -3,7 +3,7 @@ students = []
 
 for i in range(n):
     name = input("Введите имя:")
-    grades = [int(x) for x in input("Введите оценки:").split()]
+    grades = [int(x) for x in input("Введите оценки через пробел:").split()]
     students.append([name, grades])
 
 average_num = []
@@ -24,21 +24,21 @@ best_student = students[average_num.index(max_average)][0]
 worst_student = students[average_num.index(min_average)][0]
 group_avg = sum(average_num) / len(average_num)
 
-print(f"\nЛучший студент: {best_student} с средним баллом {max_average:.1f}")
-print(f"\nхудший студент: {worst_student} с среднем баллом {min_average:.1f}")
+print(f"\nЛучший студент: {best_student} ({max_average:.1f})")
+print(f"\nХудший студент: {worst_student} ({min_average:.1f})")
 print(f"\nСредний балл по группе: {group_avg:.2f}")
 
 print("\nОтчет по студентам:")
 
 for i in range(n):
     if average_num[i] >= 4.5:
-        status = "отличник"
+        status = "Отлично"
     elif average_num[i] >= 3.5:
-        status = "хорошист"
+        status = "Хорошо"
     elif average_num[i] >= 2.5:
-        status = "троечник"
+        status = "Удовлетворительно"
     else:
-        status = "неудовлетворителтьно"
+        status = "Плохо"
     print(f"{students[i][0]}: {status}")
 
 
