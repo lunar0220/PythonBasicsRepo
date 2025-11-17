@@ -1,41 +1,41 @@
-# # задание 3 
+# задание 3 
 
-# letter:str = input()
-# sep: str = input()
-# print(sep.join(letter))
-
-
-# print(input().join(input()))
-
-# # задание 4
-
-# nums_list: list[int] = [int(num) for num in input().split()]
-# nums_list.sort()
-# print(nums_list)
-
-# nums_list.sort(reverse=True)
-# print(nums_list)
+letter:str = input()
+sep: str = input()
+print(sep.join(letter))
 
 
+print(input().join(input()))
 
-# nums_list: list[int] = [int(num) for num in input().split()]
-# sorted(nums_list) #функция сортирует список и создает новый
-# print(nums_list)
+# задание 4
 
-# sorted(nums_list, reverse=True)
-# print(nums_list)
+nums_list: list[int] = [int(num) for num in input().split()]
+nums_list.sort()
+print(nums_list)
 
-
-# nums_list: list[int] = [int(num) for num in input().split()]
-
-# print(sorted(nums_list), sorted(nums_list, reverse=True), sep='\n')
+nums_list.sort(reverse=True)
+print(nums_list)
 
 
-# # задание 5
-# sent: list[int] = (len(word) for word in input().split())
-# print(max(sent))
 
-# print(max(len(word) for word in input().split()))
+nums_list: list[int] = [int(num) for num in input().split()]
+sorted(nums_list) #функция сортирует список и создает новый
+print(nums_list)
+
+sorted(nums_list, reverse=True)
+print(nums_list)
+
+
+nums_list: list[int] = [int(num) for num in input().split()]
+
+print(sorted(nums_list), sorted(nums_list, reverse=True), sep='\n')
+
+
+# задание 5
+sent: list[int] = (len(word) for word in input().split())
+print(max(sent))
+
+print(max(len(word) for word in input().split()))
 
 
 # задание 7 
