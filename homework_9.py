@@ -14,5 +14,6 @@ print('Сколько дней до моего дня рождения')
 day = int(input("Введите день рождения: "))
 month = int(input("Введите месяца рождения(1-12): "))
 
+
 days = calculate_day_till_bd(month, day)
 print(f"До вашего дня рождения осталось {days} дней!")

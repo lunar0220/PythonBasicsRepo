@@ -33,3 +33,25 @@ if __name__ == "__main__":
 
 
 main()
+
+
+def make_report(title: str, *sections, **totals) -> None:
+    print(f"=== {title} ===")
+
+    print("Секции:")
+    for section in sections:
+        print(f"- {section}")
+
+    print("Итоговые суммы:")
+    for category, val in totals.items():
+        print(f"{category}: {val}")
+
+make_report(
+    "Отчёт за месяц",
+    "Транзакций: 15",
+    "Ошибок нет",
+    food=12000,
+    transport=3500
+)
+    
+print()

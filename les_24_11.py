@@ -45,16 +45,16 @@
 
 
 
-# # task 3
-# def hello_world(string: str) -> None:
-#     vowels: str = "aeiyuo"
-#     print("Гласные:", len(list(filter(lambda x: x in vowels or x in vowels.upper(), string))))
-#     print("Согласные:", len(list(filter(lambda x: x not in vowels or x not in vowels.upper(), string))))
-#     print(string[::-1])
-#     print(string.replace(" ", ""))
+# task 3
+def hello_world(string: str) -> None:
+    vowels: str = "aeiyuo"
+    print("Гласные:", len(list(filter(lambda x: x in vowels or x in vowels.upper(), string))))
+    print("Согласные:", len(list(filter(lambda x: x not in vowels or x not in vowels.upper(), string))))
+    print(string[::-1])
+    print(string.replace(" ", ""))
 
-# sentens: str = "Hello World"
-# hello_world(sentens)
+sentens: str = "Hello World"
+hello_world(sentens)
 
 
 # # task 4
@@ -118,4 +118,4 @@
 
 # task 7 
 def line_serch(line: list[int | float]) -> None:
-    
+    pass

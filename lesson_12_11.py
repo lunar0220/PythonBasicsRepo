@@ -1,19 +1,19 @@
-nums: list[int] = [10, 20, 30, 40, 100]
-greeting: str = "Hello, its me"
+# nums: list[int] = [10, 20, 30, 40, 100]
+# greeting: str = "Hello, its me"
 
 
-nums_2: list[int] = nums[1:3]
+# nums_2: list[int] = nums[1:3]
 
 
-print(greeting[0:5: ])
-print(nums[::-1])
+# print(greeting[0:5: ])
+# print(nums[::-1])
 
-print(nums)
-print(nums_2)
+# print(nums)
+# print(nums_2)
 
-nums_2[0] = 300
-print(nums)
-print(nums_2)
+# nums_2[0] = 300
+# print(nums)
+# print(nums_2)
 
 
 
