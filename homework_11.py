@@ -13,7 +13,7 @@ print(*solve(1, -4, -5))
 # Дз
 from typing import Any
 
-def make_report(title: str, **sections: int) -> None:
+def make_report(title: Any, **sections: Any) -> None:
     print(f"=== Отчёт: {title} ===")
     total = 0
     for name, value in sections.items():
