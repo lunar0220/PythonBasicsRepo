@@ -1,3 +1,5 @@
+
+
 students = [
     {"name": "Анна", "score": 88},
     {"name": "Павел", "score": 95},
