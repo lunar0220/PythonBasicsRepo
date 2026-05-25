@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Театральный коллектив</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #eeeeee 0%, #1a1a1a 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #eeeeee 0%, #1a1a1a 100%);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background-color: #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            background-color: #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .events-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        .event-date {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .awards-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .award-item {
+            text-align: center;
+            width: 150px;
+        }
+        
+        .award-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: #666;
+        }
+        
+        .award-year {
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .contact-form, .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Театральная студия "УМКА!"</div>
+            <div class="tagline">Искусство, вдохновляющее сердца</div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">О нас</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Мы - профессиональный театральный коллектив, посвященный созданию вдохновляющих и эмоциональных постановок, которые трогают сердца зрителей. Наша команда состоит из талантливых актеров, режиссеров и художников, объединенных страстью к театральному искусству.</p>
+                    <br>
+                    <p>С момента основания в 2018 мы представили более 483 спектаклей и получили признание как за художественное мастерство, так и за инновационный подход к классическим и современным произведениям.</p>
+                    <br>
+                    <p>Наша миссия - делать театр доступным для всех, вдохновлять новое поколение зрителей и актеров, а также сохранять и развивать театральные традиции.</p>
+                </div>
+                <div class="about-image">
+                    Групповое фото коллектива
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="photos" style="background-color: #f0f2f5;">
+        <div class="container">
+            <h2 class="section-title">Фотогалерея</h2>
+            <div class="photo-gallery">
+                <div class="gallery-item"><div>Фото 1</div></div>
+                <div class="gallery-item"><div>Фото 2</div></div>
+                <div class="gallery-item"><div>Фото 3</div></div>
+                <div class="gallery-item"><div>Фото 4</div></div>
+                <div class="gallery-item"><div>Фото 5</div></div>
+                <div class="gallery-item"><div>Фото 6</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="container">
+            <h2 class="section-title">Предстоящие мероприятия</h2>
+            <div class="events-list">
+                <div class="event-card">
+                    <div class="event-date">15 июня 2026, 19:00</div>
+                    <h3>"Гамлет" Уильяма Шекспира</h3>
+                    <p>Классическая трагедия в современной интерпретации. Наши актеры представят глубокое и эмоциональное прочтение одного из величайших произведений мировой драматургии.</p>
+                    <p><strong>Место:</strong> Большой театр, зал им. Станиславского</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">10 июля 2026, 20:00</div>
+                    <h3>"Новая пьеса" - премьера</h3>
+                    <p>Мировая премьера оригинальной постановки по мотивам современных рассказов. Экспериментальное театрализованное представление с элементами иммерсивного театра.</p>
+                    <p><strong>Место:</strong> Театр "На набережной"</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">5 августа 2026, 18:30</div>
+                    <h3>Фестиваль уличного театра</h3>
+                    <p>Участие в ежегодном фестивале уличных театров. Мы представим уличное мини-представление "Тени города", посвященное жизни мегаполиса.</p>
+                    <p><strong>Место:</strong> Центральная площадь</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards" style="background-color: #f0f2f5;">
+        <div class="container">
+            <h2 class="section-title">Наши награды</h2>
+            <div class="awards-list">
+                <div class="award-item">
+                    <div class="award-icon">🏆</div>
+                    <div>Лучший спектакль года</div>
+                    <div class="award-year">2025</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">🎭</div>
+                    <div>Лучшая женская роль</div>
+                    <div class="award-year">2024</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">🏆</div>
+                    <div>Приз зрительских симпатий</div>
+                    <div class="award-year">2023</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-icon">🎭</div>
+                    <div>Лучшая режиссура</div>
+                    <div class="award-year">2022</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Свяжитесь с нами</h3>
+                    <p><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</p>
+                    <p><strong>Email:</strong> info@theater.ru</p>
+                    <p><strong>Адрес:</strong> г. Москва, ул. Культуры, д. 15</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">fb</a>
+                        <a href="#" class="social-link">ig</a>
+                        <a href="#" class="social-link">vk</a>
+                        <a href="#" class="social-link">tg</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Напишите нам</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Театральный коллектив "УМНО". Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

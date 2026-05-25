@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Разработка программ под ключ | Профессиональные решения</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ... сброс стилей и базовые настройки ... */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background-color: #f9fafb;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Шапка сайта */
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #1f2937;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #4b5563;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #0056b3;
+    }
+
+    /* Герой-секция */
+    .hero {
+      padding: 120px 0 80px;
+      text-align: center;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #4b5563;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #0056b3;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #003d82;
+    }
+
+    /* Услуги */
+    .services {
+      padding: 100px 0;
+      background-color: #ffffff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 3rem;
+      color: #111827;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background-color: #f3f4f6;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      color: #1f2937;
+    }
+
+    .service-card p {
+      color: #4b5563;
+      font-size: 1rem;
+    }
+
+    /* Контакты */
+    .contact {
+      padding: 100px 0;
+      background-color: #1f2937;
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .contact a {
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Подвал */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: #f3f4f6;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">DevPro</a>
+        <div class="nav-links">
+          <a href="#services">Услуги</a>
+          <a href="#contact">Контакты</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Герой-секция -->
+  <section class="hero">
+    <div class="container">
+      <h1>Современные программы под ключ</h1>
+      <p>Я создаю надёжные, масштабируемые и удобные решения для вашего бизнеса — от идеи до запуска.</p>
+      <a href="#contact" class="cta-button">Обсудить проект</a>
+    </div>
+  </section>
+
+  <!-- Услуги -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title">Мои услуги</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Веб-приложения</h3>
+          <p>Разработка динамичных и отзывчивых веб-приложений на современных стеках: React, Node.js, Django и других.</p>
+        </div>
+        <div class="service-card">
+          <h3>Мобильные приложения</h3>
+          <p>Нативные и кроссплатформенные приложения для iOS и Android с использованием Flutter или React Native.</p>
+        </div>
+        <div class="service-card">
+          <h3>Автоматизация процессов</h3>
+          <p>Создание скриптов и систем для автоматизации рутинных задач, интеграции сервисов и анализа данных.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Готовы начать?</h2>
+      <p>Свяжитесь со мной, чтобы обсудить ваш проект, получить консультацию или заказать разработку.</p>
+      <p>Пишите: <a href="mailto:hello@devpro.me">hello@devpro.me</a></p>
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <footer>
+    <div class="container">
+      &copy; 2025 DevPro. Все права защищены.
+    </div>
+  </footer>
+
+</body>
+</html>
