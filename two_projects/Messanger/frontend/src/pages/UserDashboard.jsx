@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import io from "socket.io-client";
 import { useNavigate } from "react-router-dom";
+import VoiceRecorder from "../components/VoiceRecorder";
 
-const socket = io("http://localhost:5000");
+const socket = io("http://localhost:5001");
 
 function UserDashboard() {
   const [chats, setChats] = useState([]);
@@ -32,13 +33,13 @@ function UserDashboard() {
   const fetchData = async () => {
     try {
       const chatsRes = await axios.get(
-        "http://localhost:5000/api/chats/my-chats",
+        "http://localhost:5001/api/chats/my-chats",
         axiosConfig,
       );
       setChats(chatsRes.data);
 
       const usersRes = await axios.get(
-        "http://localhost:5000/api/chats/all-users",
+        "http://localhost:5001/api/chats/all-users",
         axiosConfig,
       );
       setAllUsers(usersRes.data);
@@ -59,7 +60,7 @@ function UserDashboard() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/chats/${chatId}`,
+        `http://localhost:5001/api/chats/${chatId}`,
         axiosConfig,
       );
 
@@ -116,7 +117,7 @@ function UserDashboard() {
     try {
       // Создаем приватный чат
       const res = await axios.post(
-        "http://localhost:5000/api/chats/create",
+        "http://localhost:5001/api/chats/create",
         {
           type: "private",
           invitedUserId: targetUser.id,
@@ -142,7 +143,7 @@ function UserDashboard() {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/chats/${activeChat.id}/add-member`,
+        `http://localhost:5001/api/chats/${activeChat.id}/add-member`,
         {
           userIdToAdd: targetUser.id,
         },
@@ -162,7 +163,7 @@ function UserDashboard() {
     socket.emit("join_chat", chat.id);
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/chats/${chat.id}/messages`,
+        `http://localhost:5001/api/chats/${chat.id}/messages`,
         axiosConfig,
       );
       setMessages(res.data);
@@ -178,7 +179,7 @@ function UserDashboard() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/chats/create",
+        "http://localhost:5001/api/chats/create",
         {
           type: newChatType,
           title: newChatTitle,
@@ -303,16 +304,20 @@ function UserDashboard() {
               ))}
               <div ref={messagesEndRef} />
             </div>
-            <div className="input-area">
-              <input
-                type="text"
-                placeholder="Напишите сообщение..."
-                value={newMessage}
-                onChange={(e) => setNewMessage(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-              />
-              <button onClick={handleSendMessage}>Отправить</button>
-            </div>
+              <div className="input-area">
+                  <VoiceRecorder onText={setNewMessage} />
+                  <textarea
+                      className="message-input"
+                      value={newMessage}
+                      onChange={(e)=>setNewMessage(e.target.value)}
+                      placeholder="Напишите сообщение или запишите голос..."
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && !e.shiftKey) {
+                          e.preventDefault(); // отменяем перенос строки
+                          handleSendMessage();}}}
+                  />
+                  <button className="send-btn" onClick={handleSendMessage}> ➤ </button>
+              </div>
           </>
         ) : (
           <div

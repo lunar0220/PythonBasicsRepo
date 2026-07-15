@@ -1,13 +1,13 @@
 /* --- ТЕЛЕГРАМ РЕЗЕТ СТИЛЕЙ И ПЕРЕМЕННЫЕ --- */
 :root {
-  --tg-blue: #3390ec;
-  --tg-blue-hover: #2884e0;
-  --tg-bg-chat: #e7ebf0; /* Классический серо-голубой фон чата TG */
+  --tg-blue: #E8CCD7;
+  --tg-blue-hover: #DDBCC8;
+  --tg-bg-chat: #FFFBF0; /* Классический серо-голубой фон чата TG */
   --tg-sidebar-bg: #ffffff;
   --tg-text: #000000;
   --tg-text-muted: #707579;
-  --tg-my-msg: #eeffde;  /* Тот самый зеленый цвет сообщений TG */
-  --tg-other-msg: #ffffff;
+  --tg-my-msg: #E8CCD7;  /* Тот самый зеленый цвет сообщений TG */
+  --tg-other-msg: #fdf3f3;
   --tg-border: #dfdfdf;
   --tg-active-item: #f4f4f5;
 }
@@ -16,7 +16,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "SF Pro Text", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -93,8 +93,9 @@ html, body, #root {
 button {
   width: 100%;
   padding: 14px;
-  background: var(--tg-blue);
-  color: white;
+  background:#E8CCD7;
+  color:#3F3F3F;
+  font-family:"Arial Narrow", Arial, sans-serif;
   border: none;
   border-radius: 10px;
   font-size: 15px;
@@ -294,7 +295,7 @@ button:hover {
   margin-bottom: 3px;
 }
 .message.my .message-sender {
-  color: #4a904a; /* Более темный зеленый для имени в своих сообщениях */
+  color: #c76d6d; /* Более темный зеленый для имени в своих сообщениях */
 }
 
 /* Поле ввода сообщений снизу */
@@ -495,7 +496,7 @@ button:hover {
 }
 
 .btn-danger {
-  background: #ff4d4f;
+  background: #fb6c6e;
   padding: 6px 12px;
   font-size: 13px;
   border-radius: 6px;
@@ -504,4 +505,78 @@ button:hover {
 }
 .btn-danger:hover {
   background: #ff7875;
+}
+.logout-btn {
+  width: auto !important;
+  padding: 8px 16px !important;
+  height: 36px !important;
+  font-size: 14px !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  margin-top: 12px !important;
+}
+
+.recording{
+    background:#ff4d4f;
+    color:white;
+}
+
+
+.input-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 16px;
+    border-top:1px solid #ddd;
+    background:#fff;
+}
+
+.message-input{
+    flex:1;
+    min-height:46px;
+    max-height:120px;
+    resize:none;
+    border:none;
+    outline:none;
+    font-size:15px;
+    background:#f5f5f5;
+    border-radius:25px;
+    padding:12px 18px;
+}
+
+.voice-btn, .upload-btn, .send-btn{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    font-size:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.25s;
+}
+
+.voice-btn{
+    background:#E8CCD7;
+    color:white;
+}
+
+.upload-btn{
+    background:#ececec;
+}
+
+.send-btn{
+    background:#DDBCC8;
+    color:white;
+}
+.recording{
+    animation:pulse 1s infinite;
+    background:#ff4444;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.12);}
+    100%{transform:scale(1);}
 }

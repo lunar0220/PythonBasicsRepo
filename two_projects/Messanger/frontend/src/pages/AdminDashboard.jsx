@@ -13,10 +13,10 @@ function AdminDashboard() {
 
   const loadAdminData = async () => {
     try {
-      const statsRes = await axios.get('http://localhost:5000/api/admin/stats', axiosConfig);
+      const statsRes = await axios.get('http://localhost:5001/api/admin/stats', axiosConfig);
       setStats(statsRes.data);
 
-      const usersRes = await axios.get('http://localhost:5000/api/admin/users', axiosConfig);
+      const usersRes = await axios.get('http://localhost:5001/api/admin/users', axiosConfig);
       setUsers(usersRes.data);
     } catch (err) {
       console.error('Ошибка доступа к админ-панели', err);
@@ -30,7 +30,7 @@ function AdminDashboard() {
   const handleDeleteUser = async (id) => {
     if (window.confirm('Вы уверены, что хотите удалить этого пользователя?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/users/${id}`, axiosConfig);
+        await axios.delete(`http://localhost:5001/api/admin/users/${id}`, axiosConfig);
         loadAdminData(); // Обновляем данные
       } catch (err) {
         alert('Не удалось удалить пользователя');
@@ -45,9 +45,10 @@ function AdminDashboard() {
 
   return (
     <div className="admin-layout">
-      <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '20px', alignItems: 'center'}}>
-        <h2>Панель администратора (Система)</h2>
-        <button onClick={handleLogout} style={{width: 'auto'}}>Выйти из панели</button>
+      <div className="admin-container-box">
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px",}}>
+          <h2>Панель администратора</h2>
+        <button className="logout-btn" onClick={handleLogout}>Выйти из панели</button>
       </div>
 
       {/* Карточки статистики */}
@@ -95,6 +96,7 @@ function AdminDashboard() {
         </tbody>
       </table>
     </div>
+  </div>
   );
 }
 
