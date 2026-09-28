@@ -1,0 +1,24 @@
+<html lang="ru">
+<head>
+    <title>Новости</title>
+</head>
+<body>
+    <h1>Добро пожаловать</h1>
+    <h2>Блог</h2>
+    
+    {% for article in articles %}
+        <h2>{{ article.title }}</h2>
+        <p>Автор: {{ article.author.username }}</p>
+        <p>{{ article.content|truncatewords:30 }}</p> 
+        
+        <p>
+            {% for tag in article.tags.all %}
+                <span>{{ tag.name }}</span>
+            {% endfor %}
+        </p>
+    {% empty %}
+        <p>Пока статей нет</p>
+    {% endfor %}
+
+</body>
+</html>

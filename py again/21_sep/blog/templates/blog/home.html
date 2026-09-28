@@ -1,0 +1,22 @@
+<html lang="ru">
+<head>
+    <title>Мой новостной блог</title>
+</head>
+<body>
+    <h1>WELCOME</h1>
+    <p>Здесь вы можете найти самые свежие и интересные статьи.</p>
+
+    <h2>The latest news</h2>
+    <ul>
+        {% for item in news_list %}
+        <li>
+            <strong>{{ item.title }}</strong><br>
+            {{ item.content }}
+        </li>
+        {% empty %}
+        <li> новостей нет </li>
+        
+        {% endfor %}
+    </ul>
+</body>
+</html>
