@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кнопки с умными подсказками</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fdf5e6; 
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 100px;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .btn-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-wrapper:first-child {
+            margin-top: 150px; 
+        }
+
+        .btn-wrapper:last-child {
+            margin-top: 20px; 
+        }
+
+        .my-btn {
+            background-color: #f0f0f0;
+            border: 1px solid #999;
+            padding: 12px 24px;
+            font-size: 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background-color 0.2s;
+        }
+
+        .my-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: #9b59b6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 16px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            border-width: 8px;
+            border-style: solid;
+        }
+
+        .tooltip.top {
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 12px;
+        }
+        .tooltip.top::after {
+            top: 100%;
+            left: 50%;
+            margin-left: -8px;
+            border-color: #9b59b6 transparent transparent transparent;
+        }
+        .tooltip.bottom {
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 12px;
+        }
+        .tooltip.bottom::after {
+            bottom: 100%;
+            left: 50%;
+            margin-left: -8px;
+            border-color: transparent transparent #9b59b6 transparent;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="btn-wrapper">
+            <button class="my-btn">Button 1</button>
+            <div class="tooltip top">Tool tip 1</div> 
+        </div>
+
+        <div class="btn-wrapper">
+            <button class="my-btn">Button 2</button>
+            <div class="tooltip">Tool tip 2</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wrappers = document.querySelectorAll('.btn-wrapper');
+
+            wrappers.forEach(wrapper => {
+                const tooltip = wrapper.querySelector('.tooltip');
+
+                wrapper.addEventListener('mouseenter', () => {
+                    tooltip.classList.remove('top', 'bottom');
+                    
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.display = 'block';
+                    const tooltipHeight = tooltip.offsetHeight;
+                    
+                    const wrapperRect = wrapper.getBoundingClientRect();
+                    
+                    const spaceAbove = wrapperRect.top;
+                    
+                    const buffer = 20; 
+
+                    if (spaceAbove < tooltipHeight + buffer) {
+                        tooltip.classList.add('bottom');
+                    } else {
+                        tooltip.classList.add('top');
+                    }
+
+                    tooltip.style.visibility = 'visible';
+                    tooltip.style.opacity = '1';
+                });
+
+                wrapper.addEventListener('mouseleave', () => {
+                    tooltip.style.opacity = '0';
+                    tooltip.style.visibility = 'hidden';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг по JavaScript</title>
+    <style>
+        body {
+            background-color: #f7ebd9; 
+            font-family: 'Times New Roman', Times, serif; 
+            padding: 40px;
+            color: #000;
+        }
+
+
+        .book-list {
+            max-width: 900px;
+            font-size: 20px;
+            line-height: 1.4;
+            padding-left: 20px; 
+        }
+
+        .book-list li {
+            padding: 8px 10px;
+            margin-bottom: 5px;
+            cursor: pointer; 
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            user-select: none; 
+        }
+
+        .book-list li.active {
+            background-color: #fca06a;
+        }
+    </style>
+</head>
+<body>
+
+    <ol class="book-list">
+        <li>"JavaScript for Kids: A Playful Introduction to Programming" by Nick Morgan</li>
+        <li>"Eloquent JavaScript: A Modern Introduction to Programming" by Marijn Haverbeke</li>
+        <li>"JavaScript: The Good Parts" by Douglas Crockford</li>
+        <li>"Programming JavaScript Applications: Robust Web Architecture with Node, HTML5, and Moderns JS Libraries" by Eric Elliott</li>
+        <li>"Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript" by David Herman</li>
+        <li>"JavaScript: The Definitive Guide" by David Flanagan</li>
+        <li>"You Don't Know JS" by Kyle Simpson</li>
+    </ol>
+
+    <script>
+        const listItems = document.querySelectorAll('.book-list li');
+
+        listItems.forEach(item => {
+            item.addEventListener('click', () => {
+                
+                const currentlyActive = document.querySelector('.book-list li.active');
+                
+                if (currentlyActive) {
+                    currentlyActive.classList.remove('active');
+                }
+                
+                item.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

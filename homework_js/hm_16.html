@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<form class="register-form">
+    <input type="text" class="name-input" placeholder="Введите имя">
+
+    <label>
+        <input type="checkbox" class="agree-checkbox">
+        Я согласен с условиями
+    </label>
+
+    <button type="button" class="validate-button">Проверить</button>
+</form>
+
+<script>
+    const form = document.querySelector('.register-form');
+    const nameInput = document.querySelector('.name-input');
+    const agreeCheckbox = document.querySelector('.agree-checkbox');
+    const validateButton = document.querySelector('.validate-button');
+
+    validateButton.addEventListener('click', function () {
+        const name = nameInput.value.trim();
+        const isAgreed = agreeCheckbox.checked;
+
+        if (name === '') {
+            console.log('Ошибка: введите имя.');
+            return;
+        }
+        if (!isAgreed) {
+            console.log('Ошибка: необходимо согласиться с условиями.');
+            return;
+        }
+        console.log(`Регистрация успешна! Добро пожаловать, ${name}!`);
+    });
+</script>
+
+</body>
+</html>

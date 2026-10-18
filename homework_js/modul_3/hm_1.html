@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Enter your name (name can't contain digits)</p>
+    <input type="text" id="nameInput">
+
+    <script>
+        const input = document.getElementById('nameInput');
+
+        input.addEventListener('input', function () {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+    </script>
+
+</body>
+</html> 
