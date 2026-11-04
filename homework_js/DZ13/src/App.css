@@ -1,0 +1,27 @@
+.app {
+  width: 356px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 22px;
+}
+
+.user-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.user-card h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.user-card p {
+  font-size: 16px;
+  margin-bottom: 18px;
+}
