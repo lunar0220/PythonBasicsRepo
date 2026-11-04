@@ -1,0 +1,16 @@
+{% extends "events/base.html" %}
+{% block title %}Поиск — Афиша{% endblock %}
+{% block content %}
+  <h1>Поиск мероприятий</h1>
+  {% if q %}
+    <p class="meta">Запрос: «{{ q }}» — найдено: {{ paginator.count }}</p>
+    {% for event in events %}
+      {% include "events/_event_card.html" %}
+    {% empty %}
+      <p>Ничего не найдено.</p>
+    {% endfor %}
+    {% include "events/_pagination.html" %}
+  {% else %}
+    <p>Введите запрос: ищем по названию, описанию и названию категории.</p>
+  {% endif %}
+{% endblock %}

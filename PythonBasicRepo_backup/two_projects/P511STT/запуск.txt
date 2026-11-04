@@ -1,0 +1,14 @@
+cd ~\Desktop
+npm create vite@latest audio-transcriber -- --template react
+cd audio-transcriber
+
+
+npm config rm proxy
+npm config rm https-proxy
+npm config set registry https://registry.npmjs.org/
+npm config set strict-ssl false
+
+
+npm install
+npm cache clean --force
+npm install @huggingface/transformers

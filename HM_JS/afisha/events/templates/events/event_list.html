@@ -1,0 +1,10 @@
+{% extends "events/base.html" %}
+{% block content %}
+  <h1>Активные мероприятия</h1>
+  {% for event in events %}
+    {% include "events/_event_card.html" %}
+  {% empty %}
+    <p>Пока нет активных мероприятий.</p>
+  {% endfor %}
+  {% include "events/_pagination.html" %}
+{% endblock %}

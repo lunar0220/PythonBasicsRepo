@@ -1,0 +1,17 @@
+{% extends "events/base.html" %}
+{% load events_extras %}
+{% block title %}{{ event.title }}{% endblock %}
+{% block content %}
+  <p><a href="{% url 'event_list' %}">← К списку</a></p>
+  <h1>{{ event.title }} {% if not event.is_active %}<span class="off">(неактивно)</span>{% endif %}</h1>
+  <p>{{ event.description }}</p>
+  <table>
+    <tr><th>Автор</th><td>{{ event.author.username }}</td></tr>
+    <tr><th>Цена</th><td>{% if event.price == 0 %}Бесплатно{% else %}{{ event.price }} ₽{% endif %}</td></tr>
+    <tr><th>Категории</th><td>{% for c in event.categories.all %}<span class="badge">{{ c.name }}</span>{% endfor %}</td></tr>
+    <tr><th>Участники</th><td>{{ event.participants_count }} из {{ event.max_participants }}:
+      {% for u in event.participants.all %}{{ u.username }}{% if not forloop.last %}, {% endif %}{% empty %}пока никого{% endfor %}</td></tr>
+    <tr><th>Просмотры</th><td>{{ event.views }}</td></tr>
+    <tr><th>Создано</th><td>{{ event.created_at|date:"d.m.Y H:i" }}</td></tr>
+  </table>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% load events_extras %}
+<div class="card">
+  <h3><a href="{% url 'event_detail' event.pk %}">{{ event.title }}</a></h3>
+  <p>{{ event.description }}</p>
+  <p class="meta">
+    Автор: {{ event.author.username }} ·
+    {% if event.price == 0 %}Бесплатно{% else %}{{ event.price }} ₽{% endif %} ·
+    {{ event.views }}
+  </p>
+  <p>
+    {% for category in event.categories.all %}<span class="badge">{{ category.name }}</span>{% endfor %}
+  </p>
+  <p class="meta">
+    {{ event.title }} — {{ event.participants_count }} {{ event.participants_count|ru_plural:"участник,участника,участников" }}
+    — {{ event.categories_count }} {{ event.categories_count|ru_plural:"категория,категории,категорий" }}
+  </p>
+</div>

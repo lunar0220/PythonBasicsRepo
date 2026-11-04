@@ -1,0 +1,22 @@
+{% extends "events/base.html" %}
+{% block title %}Статистика — Афиша{% endblock %}
+{% block content %}
+  <h1>Статистика</h1>
+  <p>Сортировка по участникам:
+    {% if sort == "desc" %}<strong>по убыванию</strong> · <a href="?sort=asc">по возрастанию</a>
+    {% else %}<a href="?sort=desc">по убыванию</a> · <strong>по возрастанию</strong>{% endif %}
+  </p>
+  <table>
+    <thead><tr><th>Название</th><th>Участников</th><th>Категорий</th><th>Просмотров</th></tr></thead>
+    <tbody>
+      {% for event in events %}
+        <tr>
+          <td><a href="{% url 'event_detail' event.pk %}">{{ event.title }}</a>{% if not event.is_active %} <span class="off">(неактивно)</span>{% endif %}</td>
+          <td>{{ event.participants_count }}</td>
+          <td>{{ event.categories_count }}</td>
+          <td>{{ event.views }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
