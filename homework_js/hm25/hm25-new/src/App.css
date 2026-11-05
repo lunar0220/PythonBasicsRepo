@@ -1,0 +1,29 @@
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+.product-card {
+    border: 2px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 90%;
+}
+
+.product-card h3 {
+    font-size: 22px;
+}
+
+.product-card p {
+    font-size: 18px;
+}

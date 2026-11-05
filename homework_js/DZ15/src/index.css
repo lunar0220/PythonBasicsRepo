@@ -1,0 +1,130 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 25px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #888;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.user-card {
+  padding: 22px;
+  border-radius: 15px;
+  margin-bottom: 18px;
+  transition: 0.3s;
+}
+
+.user-card.active {
+  background: #d9fbe0;
+  border-left: 5px solid #36b765;
+}
+
+.user-card.inactive {
+  background: #eeeeee;
+  border-left: 5px solid #999;
+}
+
+.user-card h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+}
+
+input:focus {
+  border-color: #4b9b6a;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+.save-btn {
+  background: #4b9b6a;
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.status-btn {
+  background: #527da8;
+  color: white;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+  padding: 30px;
+}
+
+@media (max-width: 500px) {
+  .container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+  }
+}
