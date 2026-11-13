@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ news.title }}</title>
+</head>
+<body>
+
+    <h1>{{ news.title }}</h1>
+
+    <p>Категория: {{ news.category.name }}</p>
+    <p>Автор: {{ news.author.username }}</p>
+    <p>Дата публикации: {{ news.created_at }}</p>
+
+    <hr>
+
+    <div>
+        {{ news.content|linebreaks }}
+    </div>
+
+    <br>
+    {% if user.is_authenticated %}
+
+    {% if perms.news.change_news %}
+        <p>
+            <a href="{% url 'news_edit' news.slug %}">
+                Редактировать новость
+            </a>
+        </p>
+    {% endif %}
+
+    {% if perms.news.delete_news %}
+        <p>
+            <a href="{% url 'news_delete' news.slug %}">
+                Удалить новость
+            </a>
+        </p>
+    {% endif %}
+
+{% endif %}
+
+    <a href="{% url 'news_list' %}">
+        Вернуться к новостям
+    </a>
+
+</body>
+</html>
