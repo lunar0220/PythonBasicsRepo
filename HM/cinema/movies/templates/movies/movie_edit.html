@@ -1,0 +1,11 @@
+<h1>Редактирование фильма</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Сохранить изменения</button>
+</form>
+
+<a href="{% url 'movie_list' %}">Назад</a>

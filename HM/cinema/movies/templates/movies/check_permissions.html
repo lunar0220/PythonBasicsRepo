@@ -1,0 +1,37 @@
+<h1>Проверка прав пользователя</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Введите логин пользователя:</label>
+
+    <input
+        type="text"
+        name="username"
+        required
+    >
+
+    <button type="submit">Проверить</button>
+</form>
+
+{% if checked_user %}
+    <h2>Права пользователя: {{ checked_user.username }}</h2>
+
+    {% for permission, allowed in permissions.items %}
+        <p>
+            {{ permission }}:
+
+            {% if allowed %}
+                Разрешено
+            {% else %}
+                Запрещено
+            {% endif %}
+        </p>
+    {% endfor %}
+{% endif %}
+
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+
+<a href="{% url 'movie_list' %}">Назад к фильмам</a>

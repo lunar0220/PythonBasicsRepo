@@ -1,0 +1,37 @@
+<h1>🎬 Список фильмов</h1>
+
+{% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+{% for movie in movies %}
+    <div>
+        <h2>{{ movie.title }}</h2>
+        <p>{{ movie.description }}</p>
+        <p>Год выпуска: {{ movie.year }}</p>
+
+        {% if perms.movies.moderate_movie %}
+            <a href="{% url 'movie_edit' movie.pk %}">
+                Редактировать
+            </a>
+        {% endif %}
+    </div>
+    <hr>
+{% empty %}
+    <p>Фильмов пока нет.</p>
+{% endfor %}
+
+{% if perms.movies.add_movie %}
+    <a href="{% url 'movie_create' %}">Добавить фильм</a>
+{% endif %}
+
+<a href="{% url 'check_permissions' %}">
+    Проверить права пользователей
+</a>
+
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+</form>
